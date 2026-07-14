@@ -1,0 +1,26 @@
+# --- Secrets: never commit these ---
+.env
+
+# --- Telethon session (acts like a login token for your account) ---
+sessions/
+*.session
+*.session-journal
+
+# --- Downloaded media and logs (large, personal, and regeneratable) ---
+downloads/
+logs/*.log
+logs/*.db
+
+# --- Python ---
+venv/
+__pycache__/
+*.pyc
+*.pyo
+.Python
+*.egg-info/
+
+# --- OS/editor cruft ---
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
