@@ -136,7 +136,7 @@ class TelegramVideoDownloader:
         """Count how many wanted media messages exist, without downloading."""
         counts = {"photo": 0, "video": 0, "document": 0}
         total_seen = 0
-        async for message in self.client.iter_messages(entity):
+        async for message in self.client.iter_messages(entity, reverse=True):
             total_seen += 1
             media_type = classify_message(message)
             if media_type and is_wanted_media(message):
@@ -218,7 +218,7 @@ class TelegramVideoDownloader:
             f"{config.MIN_DELAY_BETWEEN_DOWNLOADS}s delay between files."
         )
 
-        async for message in self.client.iter_messages(entity):
+        async for message in self.client.iter_messages(entity, reverse=True):
             if not is_wanted_media(message):
                 continue
             if only_set is not None and message.id not in only_set:
